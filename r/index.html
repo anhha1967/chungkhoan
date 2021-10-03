@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Đang chuyển hướng</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="stylesheet" type="text/css" href="../css/4redirect.css">
+
+    <script type="text/javascript">
+      var urlRedirect = new URL(location.href).searchParams.get("url");
+      var redirect_to = 'https://fast.accesstrade.com.vn/deep_link/4724097529828107456?url=' + urlRedirect;
+      var wait_time =  5;
+      var wait_seconds = 5000;
+      var lang_redirecting_to = 'BẠN ĐANG CHUYỂN HƯỚNG ĐẾN:';
+      var lang_go = '✓ CHUYỂN TỚI LUÔN ';
+      
+    </script>
+</head>
+<body>
+    <div id="notfound">
+        <div class="notfound">
+            <img src="/images/chuyen-huong.png" alt="" />
+            <h2 id='lang_redirecting_to'></h2>
+            <p><strong id='redirect_name'></strong></p>
+            <a href="" id='lang_go'><span style="color: yellow" id="timer"></span></a>
+        </div>
+    </div>
+
+    <script>
+      document.getElementById('lang_redirecting_to').innerText = lang_redirecting_to;
+      document.getElementById('redirect_name').innerText = urlRedirect;
+      document.getElementById('lang_go').innerText = lang_go;
+      document.getElementById('lang_go').href = redirect_to;
+      
+      var redirect = window.setTimeout(function() {
+          window.location.href=redirect_to
+      }, wait_time);
+
+      document.getElementById('timer').innerHTML = wait_seconds;
+      var timer = wait_seconds;
+      var interval = setInterval(function() {
+          var seconds = timer;
+          if (seconds > 0) {
+              --seconds;
+              document.getElementById('timer').innerHTML = seconds + "";
+              timer = seconds;
+          } else {}
+      }, 1000);
+    </script>
+</body>
+
+</html>
